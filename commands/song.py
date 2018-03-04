@@ -1,14 +1,16 @@
 import command_server
+import random
 
 def song(*args):
-   #message='<iframe width="347" height="195" src="https://www.youtube.com/embed/v6zl6VdvU8A" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
-   #message = 'https://www.youtube.com/watch?v=v6zl6VdvU8A'
-   message = "Пока в процессе имплементации сорян"
-   attachment = 'https://www.youtube.com/watch?v=v6zl6VdvU8A'
+   message = "ну чет такое например\n"
+   link_list = ["s5D6JSCGD0c", "QLBRYAPRBy4", "iw-p3EBEGlA", "cdX8r3ZSzN4"]
+   message +="https://youtu.be/" + link_list[random.randint(0,len(link_list)-1)]
+   attachment = ""
    return message, attachment
 
 song_command = command_server.Command()
 
 song_command.keys = ['песня']
-song_command.description = 'присылает ссылочку на случайный клип нтрю пока тестируем'
+song_command.description = 'присылает ссылочку на случайный клип нтр. \
+                            вроде работает, но клипов пока немного'
 song_command.process = song
